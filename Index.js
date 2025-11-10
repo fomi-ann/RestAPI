@@ -77,4 +77,59 @@ const clients = [
     {id: 3, name: "Kertu", email: "kertu@email.com"}
 ]
 
+app.get('/clients', (req, res) => {res.send(clients)})
+
+app.get('/clients/:id', (req, res) => {
+    if (typeof clients[req.params.id -1] === 'undefined')
+    {
+        return res.status(404).send("Object not found. Check your client id")
+    }
+})
+
+app.post('/clients', (req, res) => {
+    if (!req.body.name || !req.body.email)
+    {
+        return res.status(400).send({error:"One or multiple parameters missing"})
+    }
+
+    let newClient = {
+        id:clients.length+1,
+        name: req.body.name,
+        email: req.body.email
+    }
+    clients.push(newClient)
+    res.status(201).location('localhost:8080/clients/'+(clients.length-1)).send(newClient)
+})
+
+app.delete('/clients/:id', (req, res) =>
+{
+    if (typeof clients[req.params.id - 1] === 'undefined')
+    {
+        return res.status(404).send({error:"Client not found. Check your client id"})
+    }
+    clients.splice(req.params.id -1,1)
+    res.status(204).send({error:"No content"})
+})
+
+app.put('/clients/:id', (req, res) => {
+    const clientId = Number(req.params.id);
+
+    if (!clientId) { 
+        return res.status(404).send("Client not found. Check your client id");
+    }
+
+    if (!req.body.name || !req.body.email) {
+        return res.status(400).send({ error: "One or multiple parameters missing" });
+    }
+
+    clients[clientId - 1] = {
+        id: clientId,
+        name: req.body.name,
+        price: req.body.email
+    };
+
+    res.status(200).send(clients[clientId - 1]);
+});
+
+
 app.listen(8080, () => {console.log(`API running at: http://localhost:8080`)})
