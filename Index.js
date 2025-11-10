@@ -47,9 +47,10 @@ app.delete('/thingamabobs/:id', (req, res) =>
     res.status(204).send({error:"No content"})
 })
 
+//xh -v PUT localhost:8080/thingamabobs/2 name="cthulhu" price:=999
 ///// thingamabobs PUT
 app.put('/thingamabobs/:id', (req, res) => {
-    const thingyId = req.params.id;
+    const thingyId = Number(req.params.id);
 
     if (!thingyId) { 
         return res.status(404).send("Object not found. Check your thingamabob id");
