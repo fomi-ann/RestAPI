@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<consolelist>
+    <console>
+        <name>Nintendo Switch</name>
+        <maker>Nintendo</maker>
+        <price>400</price>
+        <releaseyear>2017</releaseyear>
+        <unitssold>141 000 000</unitssold>
+    </console>
+
+    <console>
+        <name>Playstation 5</name>
+        <maker>Sony</maker>
+        <price>600</price>
+        <releaseyear>2020</releaseyear>
+        <unitssold>58 000 000</unitssold>
+    </console>
+
+    <console>
+        <name>Steam Machine</name>
+        <maker>Valve</maker>
+        <price>1000</price>
+        <releaseyear>2015</releaseyear>
+        <unitssold>1 000 000</unitssold>
+    </console>
+
+    <console>
+        <name>Mega Drive</name>
+        <maker>Sega</maker>
+        <price>249</price>
+        <releaseyear>1988</releaseyear>
+        <unitssold>30 000 000</unitssold>
+    </console>
+
+    <console>
+        <name>XBox</name>
+        <maker>Microsoft</maker>
+        <price>500</price>
+        <releaseyear>2001</releaseyear>
+        <unitssold>24 000 000</unitssold>
+    </console>
+</consolelist>
