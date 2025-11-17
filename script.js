@@ -52,4 +52,13 @@ document.getElementById("app").innerHTML =
     <p>Sitting covers : ${displayCars[1].Car.interior["Pet friendly"]}</p>
     <p>Intrior color : ${displayCars[1].Car.interior.color}</p>
 </div>
+
 `
+function loadDoc(){
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function() {
+        document.getElementById("baconhere").innerHTML = this.responseText;
+    };
+    xhttp.open("GET", "https://baconipsum.com/api/?type=all-meat");
+    xhttp.send();
+}
